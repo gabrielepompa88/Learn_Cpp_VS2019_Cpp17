@@ -1,3 +1,12 @@
+/*
+plog: https://github.com/SergiusTheBest/plog
+
+For Visual Studio 2019 users: to include the header files of plog, preserving the structure "plog/Log.h", 
+right click on the project name, then in Properties > C/C++ > General > Additional Include Directories 
+add the local system path to the folder where the plog folder has been saved.
+
+*/
+
 #include <iostream>
 #include "plog/Log.h" // Step 1: include the logger header
 
