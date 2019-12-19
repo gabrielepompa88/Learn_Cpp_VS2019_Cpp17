@@ -13,7 +13,10 @@ int main()
     std::cout << "long long:\t" << sizeof(long long) << " bytes\n"; // C++11 only
     std::cout << "float:\t\t" << sizeof(float) << " bytes\n";
     std::cout << "double:\t\t" << sizeof(double) << " bytes\n";
-    std::cout << "long double:\t" << sizeof(long double) << " bytes\n";
+    std::cout << "long double:\t" << sizeof(long double) << " bytes\n\n";
+
+    int x{};
+    std::cout << "x is " << sizeof(x) << " bytes\n";
 
     return 0;
 }
