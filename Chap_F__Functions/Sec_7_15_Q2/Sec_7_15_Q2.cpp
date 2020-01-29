@@ -21,7 +21,7 @@ int main()
     /*
     1) Fully explicit (including <functional> header):
 
-    std::function<bool(const Student&, const Student&)> hasBetterGrade{
+    std::function<bool(const Season&, const Season&)> isWarmer{
         [](const Season& season_i, const Season& season_j) -> bool {
             return season_i.averageTemperature < season_j.averageTemperature;
         }
