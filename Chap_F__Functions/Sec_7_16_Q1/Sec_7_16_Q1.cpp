@@ -6,7 +6,7 @@ int main()
 {
     std::string favoriteFruit{ "grapes" };
 
-    // explicitly the two lambdas below can be declared as std::function<void()>
+    // Explicitly, the two lambdas below can be declared as std::function<void()> (including <functional> header)
 
     auto printFavoriteFruitValueCaptured{
       [=]() {
