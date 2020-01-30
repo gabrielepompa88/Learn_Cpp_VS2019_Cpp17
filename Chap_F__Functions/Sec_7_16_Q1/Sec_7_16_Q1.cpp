@@ -1,12 +1,13 @@
 #include <iostream>
 #include <string>
-#include <functional>
+//#include <functional>
 
 int main()
 {
     std::string favoriteFruit{ "grapes" };
 
-    // explicitly the lambda can be declared as: std::function<void()> printFavoriteFruit;
+    // explicitly the two lambdas below can be declared as std::function<void()>
+
     auto printFavoriteFruitValueCaptured{
       [=]() {
         std::cout << "in printFavoriteFruitValueCaptured: I like " << favoriteFruit << '\n';
