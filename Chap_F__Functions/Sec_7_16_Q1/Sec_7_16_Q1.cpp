@@ -7,6 +7,9 @@ int main()
     std::string favoriteFruit{ "grapes" };
 
     // Explicitly, the two lambdas below can be declared as std::function<void()> (including <functional> header)
+    //
+    // Note: the lambda functors are instantiated here, that is their constructor is called at the point of their definition (i.e. here),
+    // wherease, their call (lines 28-29) is a call of their overloaded operator().
 
     auto printFavoriteFruitValueCaptured{
       [=]() {
