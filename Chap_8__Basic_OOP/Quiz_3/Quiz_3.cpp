@@ -62,15 +62,15 @@ public:
 
 class MonsterGenerator {
 
+	static const std::vector<std::string> s_names;	
+	static const std::vector<std::string> s_roars;
+
 public:
 
 	static const Monster generateMonster() {
 
 		Monster::MonsterType randomType = static_cast<Monster::MonsterType>(MonsterGenerator::getRandomNumber(0, static_cast<int>(Monster::MonsterType::MAX_MONSTER_TYPES) - 1));
 		int randomHitPoints = MonsterGenerator::getRandomNumber(1, 100);
-
-		static const std::vector<std::string> s_names{ "name1", "name2" , "name3" , "name4" , "name5" , "name6" };
-		static const std::vector<std::string> s_roars{ "roar1", "roar2" , "roar3" , "roar4" , "roar5" , "roar6" };
 
 		return Monster(randomType, s_names[getRandomNumber(0, 5)], s_roars[getRandomNumber(0, 5)], randomHitPoints);
 	}
@@ -85,6 +85,10 @@ public:
 	}
 
 };
+
+const std::vector<std::string> MonsterGenerator::s_names{ "name1", "name2" , "name3" , "name4" , "name5" , "name6" };
+const std::vector<std::string> MonsterGenerator::s_roars{ "roar1", "roar2" , "roar3" , "roar4" , "roar5" , "roar6" };
+
 int main()
 {
 	Monster skele(Monster::MonsterType::SKELETON, "Bones", "*rattle*", 4);
