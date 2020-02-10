@@ -11,16 +11,18 @@ public:
 		std::cout << "Default constructor called\n";
 	}
 
-	// appropriate converting constructor from int to Point2d
+	// appropriate converting constructor from int to Point2d.
+	//
+	// If this construtor is made "explicit", the following errors are thrown:
+	// Line 55: Point2d p2 = 5; ---> no suitable constructor exists to convert from "int" to "Point2d"
+	// Line 66: p3 = 7; ---> no operator "=" matches these operands
 	Point2d(const double x, const double y = 0.0): m_x(x), m_y(y){
 		std::cout << "Int --> Point2d converting constructor called with (x = " << x << ", y = " << y << ")\n";
 	}
 
 	//copy constructor
-	Point2d(const Point2d& p) {
+	Point2d(const Point2d &p): m_x(p.m_x), m_y(p.m_y) {
 		std::cout << "Copy constructor called with " << p << "\n";
-		m_x = p.m_x;
-		m_y = p.m_y;
 	}
 
 	//overloaded operator=
