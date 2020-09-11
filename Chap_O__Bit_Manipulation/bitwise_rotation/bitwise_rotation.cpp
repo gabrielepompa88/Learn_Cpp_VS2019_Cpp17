@@ -13,10 +13,16 @@ std::bitset<4> bit_rotate(std::bitset<4> bits)
 int main()
 {
 	std::bitset<4> x{ 0b0001 };
-	std::cout << bit_rotate(x) << '\n';
+	std::cout << "original: " << x << '\n';
+	std::cout << " rotated: " << bit_rotate(x) << '\n';
 
 	std::bitset<4> y{ 0b1001 };
-	std::cout << bit_rotate(y) << '\n';
+	std::cout << "original: " << y << '\n';
+	std::cout << " rotated: " << bit_rotate(y) << '\n';
+
+	std::bitset<4> z{ 0b1010 };
+	std::cout << "original: " << z << '\n';
+	std::cout << " rotated: " << bit_rotate(z) << '\n';
 
 	return 0;
 }
