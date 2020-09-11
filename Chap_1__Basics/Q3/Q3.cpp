@@ -14,7 +14,7 @@ int main() {
 	std::cout << "x + y = " << x << " + " << y << " = " << x + y << "\n";
 	std::cout << "x - y = " << x << " - " << y << " = " << x - y << "\n";
 	std::cout << "x * y = " << x << " * " << y << " = " << x * y << "\n";
-	std::cout << "x / y = " << x << " / " << y << " = " << x / std::float_t(y) << "\n";
+	std::cout << "x / y = " << x << " / " << y << " = " << x / static_cast<double>(y) << "\n";
 
 	return 0;
 
