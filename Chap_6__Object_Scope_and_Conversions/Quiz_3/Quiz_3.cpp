@@ -1,8 +1,8 @@
 #include <iostream>
 
 bool passOrFail() {
-	static int s_user{ 1 };
-	return (s_user++ <= 3 ? true : false);
+	static int s_user{};
+	return (++s_user <= 3 ? true : false);
 }
 
 #include <iostream>
