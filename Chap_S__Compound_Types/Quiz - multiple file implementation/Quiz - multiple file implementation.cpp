@@ -7,8 +7,8 @@
 
 int main() {
 
-	Monster ogre{ Race::OGRE, "Arturo", 145 };
-	Monster slime{ Race::SLIME, "Blurp", 23 };
+	extern struct Monster ogre;
+	extern struct Monster slime;
 
 	printMonster(ogre);
 	printMonster(slime);
