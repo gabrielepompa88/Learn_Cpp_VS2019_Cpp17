@@ -7,9 +7,6 @@
 
 int main() {
 
-	extern struct Monster ogre;
-	extern struct Monster slime;
-
 	printMonster(ogre);
 	printMonster(slime);
 
