@@ -5,7 +5,7 @@
 
 #include <string>
 
-extern struct Monster {
+struct Monster {
 	Race race;
 	std::string name;
 	int health;
