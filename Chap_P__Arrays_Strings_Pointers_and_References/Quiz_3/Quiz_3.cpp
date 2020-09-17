@@ -30,4 +30,6 @@ int main()
     swap(x, y);
 
     std::cout << "x = " << x << "; y = " << y << "\n";
+
+    return 0;
 }
