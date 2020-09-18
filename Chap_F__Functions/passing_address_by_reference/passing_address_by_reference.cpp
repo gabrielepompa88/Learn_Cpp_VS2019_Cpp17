@@ -59,8 +59,9 @@ int main() {
 	if (!p_z)
 		std::cout << "After reassignment: p_z is a nullptr.\n\n";
 
-	// wherease this below would cause the const-assignment erro
+	// wherease this below would cause the const-assignment error
 	// 'pc_z': you cannot assign to a variable that is const
+	//
 	// pc_z = nullptr;
 
 	return 0;
