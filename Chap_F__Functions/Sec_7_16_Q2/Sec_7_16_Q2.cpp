@@ -23,9 +23,13 @@ int main()
       }
     };
 
+    // modifying variable favoriteFruit in main...
     favoriteFruit = "bananas with chocolate";
 
+    // does not affect the behavior of the lambda capturing it 'by value'
     printFavoriteFruitValueCaptured();
+
+    // does affect the behavior of the lambda capturing it 'by reference'
     printFavoriteFruitReferenceCaptured();
 
     std::cout << "in main: I like " << favoriteFruit << '\n';
