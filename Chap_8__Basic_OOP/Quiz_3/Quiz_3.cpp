@@ -2,16 +2,13 @@
 #include <cstdlib> // for rand() and srand()
 #include <iostream>
 #include <string>
+#include <string_view>
 #include <vector>
 
 class Monster {
 
-	std::string name;
-	std::string roar;
-	int hitPoints;
-
 public:
-	enum class MonsterType {
+	enum class Type {
 		DRAGON,
 		GOBLIN,
 		OGRE,
@@ -24,41 +21,45 @@ public:
 	};
 
 private:
-	MonsterType type;
+	Type m_type;
+	std::string name;
+	std::string roar;
+	int hitPoints;
 
 public:
 
-	Monster(MonsterType monType, std::string monName, std::string monRoar, int monHitPoints) :
-		type(monType), name(monName), roar(monRoar), hitPoints(monHitPoints)
+	Monster(Monster::Type monType, const std::string& monName, const std::string& monRoar, int monHitPoints) :
+		m_type{ monType }, name{ monName }, roar{ monRoar }, hitPoints{ monHitPoints }
 	{
 	}
 
-	std::string getTypeString(Monster::MonsterType monType) const {
+	std::string_view getTypeString() const {
 
-		switch (monType) {
-		case Monster::MonsterType::DRAGON:
+		switch (m_type) {
+		case Type::DRAGON:
 			return "Dragon";
-		case Monster::MonsterType::GOBLIN:
+		case Type::GOBLIN:
 			return "Goblin";
-		case Monster::MonsterType::OGRE:
+		case Type::OGRE:
 			return "Ogre";
-		case Monster::MonsterType::ORC:
+		case Type::ORC:
 			return "Orc";
-		case Monster::MonsterType::SKELETON:
+		case Type::SKELETON:
 			return "Skeleton";
-		case Monster::MonsterType::TROLL:
+		case Type::TROLL:
 			return "Troll";
-		case Monster::MonsterType::VAMPIRE:
+		case Type::VAMPIRE:
 			return "Vampire";
-		case Monster::MonsterType::ZOMBIE:
+		case Type::ZOMBIE:
 			return "Zombie";
 		}
 	}
 
 	void print() const {
-		std::cout << name << " the " << getTypeString(type) << " has " << hitPoints << " hit points and says " << roar << "\n";
+		std::cout << name << " the " << getTypeString() << " has " << hitPoints << " hit points and says " << roar << "\n";
 	}
 };
+
 
 class MonsterGenerator {
 
@@ -69,7 +70,7 @@ public:
 
 	static const Monster generateMonster() {
 
-		Monster::MonsterType randomType = static_cast<Monster::MonsterType>(MonsterGenerator::getRandomNumber(0, static_cast<int>(Monster::MonsterType::MAX_MONSTER_TYPES) - 1));
+		Monster::Type randomType = static_cast<Monster::Type>(MonsterGenerator::getRandomNumber(0, static_cast<int>(Monster::Type::MAX_MONSTER_TYPES) - 1));
 		int randomHitPoints = MonsterGenerator::getRandomNumber(1, 100);
 
 		return Monster(randomType, s_names[getRandomNumber(0, 5)], s_roars[getRandomNumber(0, 5)], randomHitPoints);
@@ -91,14 +92,14 @@ const std::vector<std::string> MonsterGenerator::s_roars{ "roar1", "roar2" , "ro
 
 int main()
 {
-	Monster skele(Monster::MonsterType::SKELETON, "Bones", "*rattle*", 4);
+	Monster skele(Monster::Type::SKELETON, "Bones", "*rattle*", 4);
 	skele.print();
 
-	srand(static_cast<unsigned int>(time(0))); // set initial seed value to system clock
-	rand(); // If using Visual Studio, discard first random value
+	std::srand(static_cast<unsigned int>(time(0))); // set initial seed value to system clock
+	std::rand(); // If using Visual Studio, discard first random value
 
 	Monster m = MonsterGenerator::generateMonster();
 	m.print();
-
+	
 	return 0;
 }
