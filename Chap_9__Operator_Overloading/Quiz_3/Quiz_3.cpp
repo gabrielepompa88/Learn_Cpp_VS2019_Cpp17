@@ -9,6 +9,8 @@ class IntArray {
 public:
 
 	IntArray(int len) : m_len(len) {
+		std::cout << "normal constructor called\n";
+
 		delete[] m_arr;
 		m_arr = new int[m_len];
 	}
@@ -17,19 +19,27 @@ public:
 
 	//(deep)copy constructor
 	IntArray(const IntArray& source_arr){
+
 		std::cout << "Copy constructor called\n";
+
+		// deep-copying
 		deepCopy(source_arr);
 
 	}
 
 	//overloaded operator=
 	IntArray& operator=(const IntArray& source_arr) {
+
+		std::cout << "Overloaded operator= called\n";
+
+		// self-assignment check
 		if (this == &source_arr)
 			return *this;
 
-		std::cout << "Overloaded operator= called\n";
+		// deep-copying
 		deepCopy(source_arr);
 
+		// returning reference to called object for chaining 
 		return *this;
 
 	}
