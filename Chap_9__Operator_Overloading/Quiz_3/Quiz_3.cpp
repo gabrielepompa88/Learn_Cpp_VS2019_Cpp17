@@ -76,8 +76,9 @@ void IntArray::deepCopy(const IntArray& source_arr) {
 	// m_arr is a pointer, so we need to deep copy it if it is non-null
 	if (source_arr.m_arr)
 	{
-		// allocate memory for our copy
-		m_arr = new int[m_len];
+		// allocate memory for our copy: 
+		// so now this->m_arr and source_arr.m_arr point to two different memory locations
+ 		m_arr = new int[m_len];
 
 		// do the copy
 		for (int i{ 0 }; i < m_len; ++i)
