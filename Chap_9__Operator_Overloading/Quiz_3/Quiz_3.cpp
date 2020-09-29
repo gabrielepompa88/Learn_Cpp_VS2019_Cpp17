@@ -88,6 +88,7 @@ void IntArray::deepCopy(const IntArray& source_arr) {
 
 IntArray fillArray()
 {
+	std::cout << "in fillArray(): IntArray a(5); --> ";
 	IntArray a(5);
 
 	a[0] = 5;
@@ -101,7 +102,7 @@ IntArray fillArray()
 
 int main()
 {
-	std::cout << "IntArray a{ fillArray() }; --> ";
+	std::cout << "in main: IntArray a{ fillArray() }; --> \n";
 	IntArray a{ fillArray() };
 	std::cout << a << '\n';
 
