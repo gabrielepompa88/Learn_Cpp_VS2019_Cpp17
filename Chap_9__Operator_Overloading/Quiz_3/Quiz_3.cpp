@@ -66,8 +66,8 @@ public:
 
 void IntArray::deepCopy(const IntArray& source_arr) {
 
-	// first we need to deallocate any value that this array is holding!
-	// to avoid memory leaks if we reassign it to with a new dynamically allocated memory (on line 80)
+	// first we need to deallocate any value that this->m_arr is holding!
+	// to avoid memory leaks if we reassign it to a new dynamically allocated memory (on line 80)
 	delete[] m_arr;
 
 	// because m_len is not a pointer, we can shallow copy it
