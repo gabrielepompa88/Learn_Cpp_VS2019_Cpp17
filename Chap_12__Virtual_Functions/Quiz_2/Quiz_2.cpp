@@ -12,7 +12,7 @@ public:
 	friend std::ostream& operator<< (std::ostream& out, const Shape& shape);
 
 	// virtual destructor
-	~Shape()
+	virtual ~Shape()
 	{
 		std::cout << "~Shape() called.\n";
 	}
@@ -65,7 +65,7 @@ public:
 	int getRadius() const { return m_radius; }
 
 	// virtual destructor
-	~Circle()
+	virtual ~Circle()
 	{
 		std::cout << "~Circle() called.\n";
 	}
@@ -92,7 +92,7 @@ public:
 	}
 
 	// virtual destructor
-	~Triangle()
+	virtual ~Triangle()
 	{
 		std::cout << "~Triangle() called.\n";
 	}
