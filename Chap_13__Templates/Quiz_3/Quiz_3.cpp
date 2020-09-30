@@ -35,7 +35,7 @@ class StringValuePair : public Pair<std::string, T2>
 {
 public:
 	StringValuePair(const std::string &s, const T2& second_value)
-		: Pair<std::string, T2>{ s, second_value }
+		: Pair<std::string, T2>(s, second_value)
 	{
 	}
 };
@@ -48,8 +48,11 @@ int main()
 	const Pair<double, int> p2(2.3, 4);
 	std::cout << "Pair: " << p2.first() << ' ' << p2.second() << '\n';
 
-	StringValuePair<int> svp("Hello", 5);
+	StringValuePair<int> svp("Hello from StringValuePair", 5);
 	std::cout << "Pair: " << svp.first() << ' ' << svp.second() << '\n';
+
+	const Pair<std::string, int> p3("Hello from Pair", 5);
+	std::cout << "Pair: " << p3.first() << ' ' << p3.second() << '\n';
 
 	return 0;
 }
