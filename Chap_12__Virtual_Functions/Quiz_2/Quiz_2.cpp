@@ -67,7 +67,7 @@ public:
 	// virtual destructor
 	virtual ~Circle()
 	{
-		std::cout << "~Circle() called.\n";
+		std::cout << "~Circle() for " << *this << " called.\n";
 	}
 
 };
@@ -94,7 +94,7 @@ public:
 	// virtual destructor
 	virtual ~Triangle()
 	{
-		std::cout << "~Triangle() called.\n";
+		std::cout << "~Triangle() for " << *this << " called.\n";
 	}
 
 };
