@@ -61,12 +61,18 @@ public:
 	{
 	}
 
-	int first() const {
-		// this is necessary https://isocpp.org/wiki/faq/templates#nondependent-name-lookup-members
-		// because 'm_first' is a 'nondependent name' that the compiler wouldn't look at.
-		return (this->m_first).length(); 
-	}
+	// this overloaded version is implemented outside
+	int first() const;
 };
+
+// notice that this is not a partially-specialized function, which wouldn't be allowed.
+// This is the template declaration of a member function of Pair<std::string, T2>
+template<class T2>
+int Pair<std::string, T2>::first() const {
+	// this is necessary https://isocpp.org/wiki/faq/templates#nondependent-name-lookup-members
+	// because 'm_first' is a 'nondependent name' that the compiler wouldn't look at.
+	return (this->m_first).length();
+}
 
 int main()
 {
