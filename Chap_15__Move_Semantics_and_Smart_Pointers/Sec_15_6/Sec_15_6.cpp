@@ -33,9 +33,19 @@ auto generateUnique()
 
 int main()
 {
-	//std::shared_ptr<Fraction> ptr1{ new Fraction(3, 5) };
-	//auto ptr1{ std::make_shared<Fraction>(3,5) };
-	std::shared_ptr<Fraction> ptr1{ generateUnique() }; // initialized from unique_ptr
+	// ptr1 initialized using shared_ptr constructor
+	//std::shared_ptr<Fraction> ptr1{ new Fraction(3, 5) }; 
+
+	// ptr1 initialized using std::make_shared
+	//auto ptr1{ std::make_shared<Fraction>(3,5) };		
+
+	// ptr1 initialized using a std::unique_ptr r-value (temporary object returned by generateUnique())
+	// std::shared_ptr<Fraction> ptr1{ generateUnique() };
+
+	// ptr1 initialized from std::unique_ptr r-value (thanks to std::move())
+	auto ptrU{ std::make_unique<Fraction>(3, 5) };
+	std::shared_ptr<Fraction> ptr1{ std::move(ptrU) }; 
+
 	std::shared_ptr<Fraction> ptr2;	// Start as nullptr
 
 	std::cout << "ptr1 is " << (static_cast<bool>(ptr1) ? "not null\n" : "is null\n");
