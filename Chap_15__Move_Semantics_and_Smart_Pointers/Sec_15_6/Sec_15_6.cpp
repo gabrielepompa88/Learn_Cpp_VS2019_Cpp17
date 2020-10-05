@@ -26,16 +26,16 @@ public:
 	}
 };
 
-void printFraction(const Fraction* const ptr)
+auto generateUnique()
 {
-	if (ptr)
-		std::cout << *ptr << '\n';
+	return std::make_unique<Fraction>(3, 5);
 }
 
 int main()
 {
 	//std::shared_ptr<Fraction> ptr1{ new Fraction(3, 5) };
-	auto ptr1{ std::make_shared<Fraction>(3,5) };
+	//auto ptr1{ std::make_shared<Fraction>(3,5) };
+	std::shared_ptr<Fraction> ptr1{ generateUnique() }; // initialized from unique_ptr
 	std::shared_ptr<Fraction> ptr2;	// Start as nullptr
 
 	std::cout << "ptr1 is " << (static_cast<bool>(ptr1) ? "not null\n" : "is null\n");
